@@ -14,11 +14,12 @@ class LectureController extends Controller{
 		return view('index',compact('lectures','count'));
 	}
 
-    public function push_lecture($duration=null){
+    public function push_lecture(Request $req){
     	//return $duration;
     	$l=new Lecture();
-    	$l->duration=$duration!=null?$duration:null;
+        $l->client_id=$req->get('client_id');
     	$l->save();
-    	return "done";
+
+        return "done";
     }
 }
