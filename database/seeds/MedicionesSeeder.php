@@ -16,7 +16,7 @@ class MedicionesSeeder extends Seeder{
 
     	for ($i=0; $i <10000; $i++) { 
     		$lecture=new Lecture();
-    		$lecture->client_id=array_rand($lectores_id);
+    		$lecture->client_id=$lectores_id[array_rand($lectores_id)];
     		$lecture->created_at=$faker->dateTimeBetween($startDate = '-10 months', $endDate = 'now');
     		$lecture->save();
     		
