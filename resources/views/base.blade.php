@@ -21,6 +21,16 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Lecturas</a></li>
         <li><a href="{{ url('/estadisticas') }}">Estadísticas</a></li>
+
+<span class="dropdown">
+  <li class="dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+  <span class="caret"></span></li>
+  <ul class="dropdown-menu">
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">JavaScript</a></li>
+  </ul>
+</span>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	@if(!Auth::user())
