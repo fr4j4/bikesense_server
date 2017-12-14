@@ -22,3 +22,7 @@ Route::get('/estadisticas','LectureController@viewEstadisticas');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix'=>'lector'],function(){
+	Route::get('/registrar','OtherController@show_register_lector_form');
+});
