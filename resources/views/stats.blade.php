@@ -1,7 +1,6 @@
 @extends('base')
 @section('title','Estadísticas Bikesense')
-<script type="text/javascript" src="{{asset('js/chart.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/stats.js')}}"></script>
+
 @section('content')
 
 <div style="text-align: center;" class="container">
@@ -12,10 +11,12 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="{{asset('js/chart.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/stats.js')}}"></script>
 @endsection
 
 <script type="text/javascript">
 @section('ready')
-	alert('stats')
+alert('stats')
 @endsection
 </script>

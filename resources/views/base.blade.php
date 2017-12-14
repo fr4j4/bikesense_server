@@ -81,10 +81,11 @@
                                         </form>
 @endif
 
-@yield('content')
 <script type="text/javascript" src="{{asset('vendors/jquery/jquery.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/base.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+
+@yield('content')
 
 <script type="text/javascript">
 	

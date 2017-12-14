@@ -1,6 +1,16 @@
+$(document).ready(function() {
+    $.get('/datosporhora', function (data) {
+        for (var d in data){
+            console.log(data[d].med);
+        }
+    });
+});
+
 function graficoHoras(){
     $.get('/datosporhora', function (data) {
-        console.log(data);
+        for (var d in data){
+            console.log(data[d].med);
+        }
     });
 }
 /*var ctx = document.getElementById("myChart").getContext('2d');
