@@ -25,5 +25,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'lector'],function(){
-	Route::get('/registrar','OtherController@show_register_lector_form');
+	Route::get('/registrar','OtherController@show_register_lector_form')->name('registrar_lector');
 });
