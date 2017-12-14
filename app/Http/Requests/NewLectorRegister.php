@@ -11,9 +11,8 @@ class NewLectorRegister extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
+    public function authorize(){
+        return true;
     }
 
     /**
@@ -21,10 +20,11 @@ class NewLectorRegister extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules(){
         return [
-            //
+            'sensor_id'=>'required',
+            'latitud'=>'required|numeric',
+            'longitud'=>'required|numeric',
         ];
     }
 }

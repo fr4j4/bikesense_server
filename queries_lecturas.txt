@@ -12,3 +12,6 @@ Lecturas de cada lector por cada dia de la semana
 6=Sab
 
 $t=Lecture::select(DB::raw('client_id, count(*) as med, weekday(created_at) as day'))->groupBy('day')->groupBy('client_id')->orderBy('client_id')->orderBy('day')->get()
+
+NUEVA
+ $t=Lecture::select(DB::raw('sensor_id, count(*) as med, weekday(created_at) as day'))->groupBy('day')->groupBy('sensor_id')->orderBy('sensor_id')->orderBy('day')->get();
