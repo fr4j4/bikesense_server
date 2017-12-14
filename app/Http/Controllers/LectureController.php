@@ -32,7 +32,10 @@ class LectureController extends Controller{
     }
 
 
-
+    public function datosPorDia(){
+        $t=Lecture::select(DB::raw('client_id, count(*) as med, weekday(created_at) as day'))->groupBy('day')->groupBy('client_id')->orderBy('client_id')->orderBy('day')->get();
+        return Response::json($t);
+    }
 
     public function datosPorHora(){
         $t=Lecture::select(DB::raw('client_id'),DB::raw('COUNT(*) as med'),DB::raw('HOUR(created_at) as hour'))->groupBy('client_id')->groupBy(DB::raw('hour'))->orderBy('client_id','asc')->orderBy('hour','asc')->get();

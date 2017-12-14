@@ -6,7 +6,15 @@
 <div style="text-align: center;" class="container">
 	<div class="well col-md-8 col-md-push-2" >
 		<legend>Estadísticas del sensor</legend>
-		<canvas id="myChart" width="400" height="250"></canvas>
+		<div class="row">
+			<div class="col">
+				<canvas id="myChart" width="400" height="250"></canvas>
+			</div>
+			<div class="col">
+				<canvas id="grafhoras" width="400" height="250"></canvas>
+			</div>
+		</div>
+		
 		
 	</div>
 </div>
@@ -17,6 +25,6 @@
 
 <script type="text/javascript">
 @section('ready')
-alert('stats')
+
 @endsection
 </script>

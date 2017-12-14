@@ -1,18 +1,64 @@
 $(document).ready(function() {
-    $.get('/datosporhora', function (data) {
+    $.get('/datospordia', function (data) {
+        var sensor1 = [];
+        var sensor2 = [];
+        var dias = [];
+        var placa = [];
         for (var d in data){
-            console.log(data[d].med);
+            placa.push(data[d].client_id);
+            dias.push(data[d].day);
+            if(data[d].client_id=="A001F20")
+                sensor1.push(data[d].med);
+            if(data[d].client_id=="A001F43")
+                sensor2.push(data[d].med);
         }
+        var ctx = document.getElementById("myChart").getContext('2d');
+
+        var data1 = {
+          label: 'Sensor A001F20',
+          data: sensor1,
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          yAxisID: "A001F20"
+        };
+         
+        var data2 = {
+          label: 'Sensor A001F43',
+          data: sensor2,
+          backgroundColor: 'rgba(99, 132, 0, 0.5)',
+          borderColor: 'rgba(99, 132, 0, 1)',
+          yAxisID: "Sensor A001F43"
+        };
+         
+        var dataMediciones = {
+          labels: ["Domingo", "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+          datasets: [data1, data2]
+        };
+         
+        var chartOptions = {
+          scales: {
+            xAxes: [{
+              barPercentage: 1,
+              categoryPercentage: 0.6
+            }],
+            yAxes: [{
+              id: "A001F20"
+            }, {
+              id: "Sensor A001F43"
+            }]
+          }
+        };
+         
+        var barChart = new Chart(ctx, {
+          type: 'bar',
+          data: dataMediciones,
+          options: chartOptions
+        });
+
     });
 });
 
-function graficoHoras(){
-    $.get('/datosporhora', function (data) {
-        for (var d in data){
-            console.log(data[d].med);
-        }
-    });
-}
+
 /*var ctx = document.getElementById("myChart").getContext('2d');
 $hoy = date('Y-m-d');
 $fechas = [$hoy,$hoy-1,$hoy-2,$hoy-3,$hoy-4];
