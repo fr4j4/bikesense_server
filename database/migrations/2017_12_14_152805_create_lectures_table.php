@@ -13,7 +13,8 @@ class CreateLecturesTable extends Migration{
     public function up(){
         Schema::create('lectures', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('client_id');
+            $table->string('sensor_id');
+            $table->foreign('sensor_id')->references('id')->on('sensors');
             $table->timestamps();
         });
     }
