@@ -26,9 +26,9 @@ class MedicionesSeeder extends Seeder{
         */
         $lectores=[];
         foreach (Sensor::all() as $sensor) {
-            array_push($lectores, $sensor);
+            array_push($lectores, $sensor); 
         }
-        for ($i=0; $i < 500; $i++) { 
+        for ($i=0; $i < 10000; $i++) { 
             $lecture=new Lecture();
             $lecture->created_at=$faker->dateTimeBetween($startDate = '-10 months', $endDate = 'now');
             //$lecture->save();

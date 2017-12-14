@@ -15,7 +15,7 @@
       </ul>
     </div>
     @endif
-    
+
 	<form method="post">
 		{{ csrf_field() }}
 
@@ -24,25 +24,33 @@
 			<div class="form-group" >
 				<label for="sensor_id" class="col-md-2">ID sensor</label>
 				<div class="col-md-10">
-					<input autofocus style="text-transform: uppercase;" type="text" class="form-control" name="sensor_id">
+					<input autofocus style="text-transform: uppercase;" type="text" class="form-control" name="sensor_id" required>
 				</div>
 			</div>
 			<div class="form-group" style="margin-top: 3em !important">
 				<label for="latitud" class="col-md-2">Latitud</label>
 
 				<div class="col-md-4">
-					<input type="text" class="form-control" name="latitud">
+					<input type="number" required class="form-control" name="latitud">
 				</div>
 
-				<label for="longitud" class="col-md-2">Longitud</label>
+				<label for="longitud" required class="col-md-2">Longitud</label>
 				<div class="col-md-4">
-					<input type="text" class="form-control" name="longitud">
+					<input type="number" class="form-control" name="longitud">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-2">Direccion</label>
+				<div class="col-md-10">
+					<input type="text" name="direccion" class="form-control">	
 				</div>
 			</div>
 
 			<div class="form-group">
 				<button class="btn btn-primary">Registrar nuevo sensor</button>
 			</div>
+
 
 		</fieldset>
 
