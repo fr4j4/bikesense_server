@@ -7,9 +7,9 @@ $(document).ready(function() {
         for (var d in data){
             placa.push(data[d].client_id);
             dias.push(data[d].day);
-            if(data[d].client_id=="A001F20")
+            if(data[d].sensor_id=="A001F20")
                 sensor1.push(data[d].med);
-            if(data[d].client_id=="A001F43")
+            if(data[d].sensor_id=="A001F43")
                 sensor2.push(data[d].med);
         }
         var ctx = document.getElementById("myChart").getContext('2d');
