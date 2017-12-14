@@ -1,0 +1,14 @@
+Lecturas de cada lector por mes
+$t=Lecture::select(DB::raw('client_id'),DB::raw('COUNT(*) as med'),DB::raw('MONTH(created_at) as month'))->groupBy('client_id')->groupBy(DB::raw('month'))->orderBy('client_id','asc')->orderBy('month','asc')->get()
+
+
+Lecturas de cada lector por hora
+$t=Lecture::select(DB::raw('client_id'),DB::raw('COUNT(*) as med'),DB::raw('HOUR(created_at) as hour'))->groupBy('client_id')->groupBy(DB::raw('hour'))->orderBy('client_id','asc')->orderBy('hour','asc')->get()
+
+Lecturas de cada lector por cada dia de la semana
+0=Dom
+1=Lun
+...
+6=Sab
+
+$t=Lecture::select(DB::raw('client_id, count(*) as med, weekday(created_at) as day'))->groupBy('day')->groupBy('client_id')->orderBy('client_id')->orderBy('day')->get()
