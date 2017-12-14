@@ -21,6 +21,18 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Lecturas</a></li>
         <li><a href="{{ url('/estadisticas') }}">Estadísticas</a></li>
+
+      <li class="dropdown" style="cursor: pointer;">
+        <a class="dropdown-toggle" data-toggle="dropdown">Administrar sensores
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Registrar nuevo</a></li>
+          <li><a href="#">Sensores registrados</a></li>
+          <!---
+          <li><a href="#"></a></li>
+          -->
+        </ul>
+      </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	@if(!Auth::user())
@@ -73,12 +85,12 @@
                 </button>
             </div>
         </div>
-    </div>
+  </div> 
 </div>
 @else
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
+  {{ csrf_field() }}
+</form>
 @endif
 
 <script type="text/javascript" src="{{asset('vendors/jquery/jquery.js')}}"></script>
@@ -88,7 +100,6 @@
 @yield('content')
 
 <script type="text/javascript">
-	
 	$().ready(function(){
 		@yield("ready")
 	});

@@ -1,2 +1,2 @@
 @extends('base')
-sd
+@section('title','Registrar nuevo sensor')
