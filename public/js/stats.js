@@ -1,5 +1,9 @@
-
-var ctx = document.getElementById("myChart").getContext('2d');
+function graficoHoras(){
+    $.get('/datosporhora', function (data) {
+        console.log(data);
+    });
+}
+/*var ctx = document.getElementById("myChart").getContext('2d');
 $hoy = date('Y-m-d');
 $fechas = [$hoy,$hoy-1,$hoy-2,$hoy-3,$hoy-4];
 var myChart = new Chart(ctx, {
@@ -37,4 +41,4 @@ var myChart = new Chart(ctx, {
             }]
         }
     }
-});
+});*/

@@ -8,7 +8,7 @@
 	<div class="well col-md-8 col-md-push-2" >
 		<legend>Estadísticas del sensor</legend>
 		<canvas id="myChart" width="400" height="250"></canvas>
-		alert($t);
+		
 	</div>
 </div>
 

@@ -24,10 +24,15 @@ class LectureController extends Controller{
 
         return "done";
     }
+    
     public function viewEstadisticas(){
         $t=Lecture::select(DB::raw('client_id'),DB::raw('COUNT(*) as med'),DB::raw('HOUR(created_at) as hour'))->groupBy('client_id')->groupBy(DB::raw('hour'))->orderBy('client_id','asc')->orderBy('hour','asc')->get();
         return view('stats',compact('t'));
     }
+
+
+
+
     public function datosPorHora(){
         $t=Lecture::select(DB::raw('client_id'),DB::raw('COUNT(*) as med'),DB::raw('HOUR(created_at) as hour'))->groupBy('client_id')->groupBy(DB::raw('hour'))->orderBy('client_id','asc')->orderBy('hour','asc')->get();
         return Response::json($t);

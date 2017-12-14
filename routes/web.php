@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/pushLecture/{duration?}','LectureController@push_lecture');
 Route::get('/','LectureController@index');
 Route::get('/estadisticas','LectureController@viewEstadisticas');
+Route::get('/datosporhora','LectureController@datosPorHora');
 
 Auth::routes();
 
