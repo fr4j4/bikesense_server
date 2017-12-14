@@ -96,6 +96,12 @@
 <script type="text/javascript" src="{{asset('js/base.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
+<script type="text/javascript">
+	
+	$().ready(function(){
+		@yield("ready")
+	});
+</script>
 
 </body>
 </html>

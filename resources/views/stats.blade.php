@@ -13,3 +13,9 @@
 </div>
 
 @endsection
+
+<script type="text/javascript">
+@section('ready')
+	alert('stats')
+@endsection
+</script>

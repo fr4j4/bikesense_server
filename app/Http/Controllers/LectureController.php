@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Lecture;
 use DB;
 use Input;
+use Response;
 class LectureController extends Controller{
     
 	public function index(){
