@@ -18,7 +18,9 @@
 		
 	</div>
 </div>
-
+<script type="text/javascript">
+	var sensores=[];
+</script>
 <script type="text/javascript" src="{{asset('js/chart.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/stats.js')}}"></script>
 @endsection

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $.get('/datospordia', function (data) {
         var sensor1 = [];
         var sensor2 = [];
@@ -7,12 +8,58 @@ $(document).ready(function() {
         for (var d in data){
             placa.push(data[d].client_id);
             dias.push(data[d].day);
+            encontrado=false;
+            for( i in sensores){
+                s=sensores[i];
+                if(s.id==data[d].sensor_id){
+                    encontrado=true;
+                }
+            }
+            if(!encontrado){
+                sensores.push({
+                    id:data[d].sensor_id,
+                    mediciones:[0,0,0,0,0,0,0],
+                })
+            }
+
+            
+
+
+            /*
             if(data[d].sensor_id=="A001F20")
                 sensor1.push(data[d].med);
             if(data[d].sensor_id=="A001F43")
                 sensor2.push(data[d].med);
+            */
         }
+
+
+        for(var i in data){
+            sensor=undefined
+            dato=data[i];
+            for(j in sensores){
+                if(sensores[j].id===dato.sensor_id){
+                    sensor=sensores[j]
+                    break
+                }
+            }
+            if(sensor){
+                sensor.mediciones[dato.day]=dato.med
+            }
+        }
+
         var ctx = document.getElementById("myChart").getContext('2d');
+
+        var datasets=[]
+
+        for (s in sensores){
+            sensor=sensores[s]
+            datasets.push({
+                label:'Sensor '+sensor.id,
+                data:sensor.mediciones,
+                backgroundColor:'rgba('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+',0.5)',
+            })
+        }
 
         var data1 = {
           label: 'Sensor A001F20',
@@ -32,7 +79,7 @@ $(document).ready(function() {
          
         var dataMediciones = {
           labels: ["Domingo", "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
-          datasets: [data1, data2]
+          datasets: datasets,
         };
          
         var chartOptions = {
