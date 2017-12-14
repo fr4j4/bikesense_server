@@ -14,8 +14,13 @@
 				<canvas id="grafhoras" width="400" height="250"></canvas>
 			</div>
 		</div>
-		
-		
+
+		<legend>Medidas totales por día</legend>
+		<div class="row">
+			<div class="col">
+				<canvas id="myChart2" width="400" height="250"></canvas>
+			</div>
+		</div>
 	</div>
 </div>
 <script type="text/javascript">

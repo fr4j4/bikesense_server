@@ -19,6 +19,7 @@ $(document).ready(function() {
                 sensores.push({
                     id:data[d].sensor_id,
                     mediciones:[0,0,0,0,0,0,0],
+                    mediciones2:[0,0,0,0,0,0,0],
                 })
             }
         }
@@ -34,20 +35,30 @@ $(document).ready(function() {
                 }
             }
             if(sensor){
+                sensor.mediciones2[dato.day]=dato.med
                 sensor.mediciones[dato.day]=(dato.med/cuentadias[dato.day])*100
             }
         }
 
         var ctx = document.getElementById("myChart").getContext('2d');
+        var ctx2 = document.getElementById("myChart2").getContext('2d');
 
         var datasets=[]
+        var datasets2=[]
 
         for (s in sensores){
             sensor=sensores[s]
+            color=[Math.floor(Math.random()*255),Math.floor(Math.random()*255),Math.floor(Math.random()*255)]
             datasets.push({
                 label:'Sensor '+sensor.id,
                 data:sensor.mediciones,
-                backgroundColor:'rgba('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+',0.5)',
+                backgroundColor:'rgba('+color[0]+','+color[1]+','+color[2]+',0.5)',
+            })
+
+            datasets2.push({
+                label:'Sensor '+sensor.id,
+                data:sensor.mediciones2,
+                backgroundColor:'rgba('+color[0]+','+color[1]+','+color[2]+',0.5)',
             })
         }
          
@@ -55,7 +66,14 @@ $(document).ready(function() {
           labels: ["Domingo", "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
           datasets: datasets,
         };
-         
+
+        var dataMediciones2 = {
+          labels: ["Domingo", "Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+          datasets: datasets2,
+        };
+        
+
+
         var chartOptions = {
           scales: {
             xAxes: [{
@@ -71,6 +89,12 @@ $(document).ready(function() {
         var barChart = new Chart(ctx, {
           type: 'bar',
           data: dataMediciones,
+          options: chartOptions
+        });
+
+        var barChart2 = new Chart(ctx2, {
+          type: 'bar',
+          data: dataMediciones2,
           options: chartOptions
         });
 
