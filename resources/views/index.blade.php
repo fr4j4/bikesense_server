@@ -15,9 +15,8 @@
 		</thead>
 		@foreach($lectures as $l)
 			<tr>
-				<td>A001F43</td>
+				<td>{{$l->client_id}}</td>
 				<td>{{$l->created_at}}</td>
-				<td>{{$l->duration}}</td>
 			</tr>
 		@endforeach
 		</table>

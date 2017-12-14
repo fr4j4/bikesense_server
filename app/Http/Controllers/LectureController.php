@@ -15,12 +15,14 @@ class LectureController extends Controller{
 		return view('index',compact('lectures','count'));
 	}
 
-    public function push_lecture($duration=null){
+    public function push_lecture(Request $req){
     	//return $duration;
     	$l=new Lecture();
     	$l->client_id=$req->get('client_id');
+
     	$l->save();
-    	return "done";
+
+        return "done";
     }
     public function viewEstadisticas(){
         $t=Lecture::select(DB::raw('client_id'),DB::raw('COUNT(*) as med'),DB::raw('HOUR(created_at) as hour'))->groupBy('client_id')->groupBy(DB::raw('hour'))->orderBy('client_id','asc')->orderBy('hour','asc')->get();
