@@ -5,7 +5,7 @@
 
 <div style="text-align: center;" class="container">
 	<div class="well col-md-8 col-md-push-2" >
-		<legend>Estadísticas del sensor</legend>
+		<legend>Porcentajes de medidas por día</legend>
 		<div class="row">
 			<div class="col">
 				<canvas id="myChart" width="400" height="250"></canvas>

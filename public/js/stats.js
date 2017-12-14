@@ -34,7 +34,7 @@ $(document).ready(function() {
                 }
             }
             if(sensor){
-                sensor.mediciones[dato.day]=dato.med
+                sensor.mediciones[dato.day]=(dato.med/cuentadias[dato.day])*100
             }
         }
 

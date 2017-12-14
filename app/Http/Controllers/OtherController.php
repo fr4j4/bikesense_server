@@ -15,4 +15,5 @@ class OtherController extends Controller{
     public function registrar_lector(NewLectorRegister $req){
     	return $req;
     }
+
 }
