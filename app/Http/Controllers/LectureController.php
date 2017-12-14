@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Lecture;
+use App\Sensor;
 use DB;
 use Input;
 use Response;
@@ -19,9 +20,16 @@ class LectureController extends Controller{
     public function push_lecture(Request $req){
     	//return $duration;
     	$l=new Lecture();
-    	$l->sensor_id=$req->get('sensor_id');
-
-    	$l->save();
+    	$sensor=Sensor::find($req->get('client_id'));
+        /*
+        if(!$sensor){
+           $sensor=new Sensor();
+            $sensor->id=$req->get('sensor_id');
+            $sensor->latitud="123.123";
+            $sensor->longitud="123.123";
+            $sensor->save();
+        }*/
+        $sensor->lecturas()->save($l);
 
         return "done";
     }
