@@ -22,15 +22,17 @@
         <li class="active"><a href="#">Lecturas</a></li>
         <li><a href="{{ url('/estadisticas') }}">Estadísticas</a></li>
 
-<span class="dropdown">
-  <li class="dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></li>
-  <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-  </ul>
-</span>
+      <li class="dropdown" style="cursor: pointer;">
+        <a class="dropdown-toggle" data-toggle="dropdown">Administrar sensores
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Registrar nuevo</a></li>
+          <li><a href="#">Sensores registrados</a></li>
+          <!---
+          <li><a href="#"></a></li>
+          -->
+        </ul>
+      </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	@if(!Auth::user())
@@ -83,12 +85,12 @@
                 </button>
             </div>
         </div>
-    </div>
+  </div> 
 </div>
 @else
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
+  {{ csrf_field() }}
+</form>
 @endif
 
 @yield('content')
@@ -97,7 +99,6 @@
 <script type="text/javascript" src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 <script type="text/javascript">
-	
 	$().ready(function(){
 		@yield("ready")
 	});
