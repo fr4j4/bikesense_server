@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/pushLecture/{duration?}','LectureController@push_lecture');
 Route::get('/','LectureController@index');
+Route::get('/estadisticas','LectureController@viewEstadisticas');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

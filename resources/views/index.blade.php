@@ -1,6 +1,8 @@
 @extends('base')
-@section('title','Lecturas')
+@section('title','Lecturas Bikesense')
 @section('content')
+
+	
 
 <div style="text-align: center;" class="container">
 	<div class="well col-md-8 col-md-push-2" >
@@ -10,7 +12,6 @@
 		<thead>
 			<th style="text-align: center;">id_sensor</th>
 			<th style="text-align: center;">fecha medición</th>
-			<th style="text-align: center;">duración medición</th>
 		</thead>
 		@foreach($lectures as $l)
 			<tr>
@@ -22,4 +23,7 @@
 		</table>
 	</div>
 </div>
+
+
+
 @endsection
