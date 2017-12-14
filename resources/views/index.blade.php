@@ -15,7 +15,7 @@
 		</thead>
 		@foreach($lectures as $l)
 			<tr>
-				<td>{{$l->client_id}}</td>
+				<td>{{$l->sensor->id}}</td>
 				<td>{{$l->created_at}}</td>
 			</tr>
 		@endforeach
